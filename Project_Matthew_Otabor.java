@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 public class Project_Matthew_Otabor {
     public static void main(String[] args) {
         ArrayList<Policy> policies = new ArrayList<>();
-        
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
+
         try {
             File file = new File("CSC251Project/PolicyInformation.txt");
             Scanner scanner = new Scanner(file);
@@ -27,6 +29,13 @@ public class Project_Matthew_Otabor {
 
                 // Add policy to the list
                 policies.add(policy);
+
+                // Count smokers and non-smokers
+                if (smokingStatus.equalsIgnoreCase("smoker")) {
+                    smokerCount++;
+                } else {
+                    nonSmokerCount++;
+                }
             }
 
             scanner.close();
@@ -49,5 +58,9 @@ public class Project_Matthew_Otabor {
             System.out.printf("Policyholder’s BMI: %.2f\n", policy.calculateBMI());
             System.out.printf("Policy Price: $%.2f\n", policy.calculatePolicyPrice());
         }
+
+        // Display number of smokers and non-smokers
+        System.out.println("\nNumber of Policyholders that are smokers: " + smokerCount);
+        System.out.println("Number of Policyholders that are non-smokers: " + nonSmokerCount);
     }
 }
