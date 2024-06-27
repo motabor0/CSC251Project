@@ -10,7 +10,7 @@ public class Project_Matthew_Otabor {
         int nonSmokerCount = 0;
 
         try {
-            File file = new File("CSC251Project/PolicyInformation.txt");
+            File file = new File("PolicyInformation.txt");
             Scanner scanner = new Scanner(file);
 
             while (scanner.hasNextLine()) {
